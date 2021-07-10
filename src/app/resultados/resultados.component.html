@@ -1,0 +1,27 @@
+<h1>Resultados</h1>
+
+<table *ngFor="let jugador of jugadores">
+  <thead>
+      <tr>
+        <th>
+          {{jugador.nombre}}
+        </th>
+      </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td><h4>Veces que ha quedado en la posición #1: </h4></td>
+      <td><label id="{{jugador.id}}"></label></td>
+    </tr>
+    <tr>
+      <td><h4>Veces que ha quedado en la posición #2: </h4></td>
+    </tr>
+    <tr>
+      <td><h4>Veces que ha quedado en la posición #3: </h4></td>
+    </tr>
+  </tbody>
+</table>
+
+<a [routerLink]="['']">Volver</a>
+

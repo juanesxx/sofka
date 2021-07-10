@@ -1,0 +1,29 @@
+<h1>Configuración del juego</h1>
+
+
+<div>
+  <form action="">
+    <div>
+      <label for="">Nombre del jugador</label>
+      <input type="text" placeholder="Nombre jugador" [(ngModel)]="jugador.nombre" name="nombre"/>
+    </div>
+    <div>
+      <label for="">Vehículo</label>
+      <select [(ngModel)]="jugador.vehiculo" name="vehiculo">
+        <option value="1">McLaren 720S Dodge</option>
+        <option value="2">Porsche 911 GT2 RS</option>
+        <option value="3">Challenger RT Scat Pack 1320</option>
+        <option value="4">Nissan GTR</option>
+        <option value="5">Bugatti Veyron</option>
+        <option value="6">Lamborghini Aventador Coupé</option>
+        <option value="7">Koenigsegg CCX</option>
+        <option value="8">Ferrari Enzo</option>
+        <option value="9">Pagani Zonda</option>
+      </select>
+    </div>
+
+    <button role="button" (click)='save()'>Crear</button>
+  </form>
+</div>
+
+<a [routerLink]="['']">Volver</a>

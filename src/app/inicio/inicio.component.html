@@ -1,0 +1,58 @@
+<h1>Inicio del juego!</h1>
+
+
+<div>
+  <label for="">Vehículo: </label>
+  <select [(ngModel)]="valorSeleccionado"  (change)='cargarVehiculo()'>
+    <option *ngFor="let vehiculo of vehiculos" value="{{vehiculo.id}}">{{vehiculo.tipo_vehiculo}}</option>
+  </select>
+</div>
+
+<div>
+  <label>Carril: </label>
+  <label id="lblCarril"></label>
+</div>
+<div>
+  <label>Metros recorridos: </label>
+  <label id="lblMetros"></label>
+</div>
+<br>
+<div>
+  <button (click)='dados(); actualizar()'>LANZAR DADOS</button> <br>
+  <label>Resultado: </label>
+  <label id="lblResultado"></label> <br>
+  <label>Recorrió: </label>
+  <label id="lblRecorrido"></label>
+  <label> metros</label>
+
+</div>
+
+
+<div>
+  <div>
+    <h1>PODIO</h1>
+  </div>
+  <div>
+    <h4><label>Primer puesto: </label></h4>
+    <label id="lblPrimerPuesto"></label>
+  </div>
+  <div>
+    <h4><label>Segundo puesto: </label></h4>
+    <label id="lblSegundoPuesto"></label>
+  </div>
+  <div>
+    <h4><label>Tercer puesto: </label></h4>
+    <label id="lblTercerPuesto"></label>
+  </div>
+
+</div>
+
+
+<div>
+  <button (click)='resetear()'>Empezar de nuevo</button>
+  <button (click)='terminar()'>Terminar juego</button>
+
+</div>
+
+
+<a [routerLink]="['']">Volver</a>
