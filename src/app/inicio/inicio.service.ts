@@ -30,8 +30,8 @@ export class InicioService {
     return this.http.put(this.urlEndPoint, {headers: this.httpHeaders});
   }
 
-  guardarDatos(juego: Juego): Observable<Juego>{
-    return this.http.post<Juego>(`${this.urlEndPoint}/juego`, juego, {headers: this.httpHeaders});
+  guardarDatos(juegos: Juego[]): Observable<Juego[]>{
+    return this.http.post<Juego[]>(`${this.urlEndPoint}/juego`, juegos, {headers: this.httpHeaders});
   }
 
 }

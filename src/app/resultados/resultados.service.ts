@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Juego } from '../jugadores/juego';
 import { Jugador } from '../jugadores/jugador';
+import { Resultado } from '../jugadores/resultado';
 import { Vehiculo } from '../jugadores/vehiculo';
 
 @Injectable({
@@ -13,20 +14,12 @@ export class ResultadosService {
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
   constructor(private http: HttpClient) { }
 
-  obtenerVehiculos(): Observable<Vehiculo[]>{
-    return this.http.get<Vehiculo[]>(`${this.urlEndPoint}`);
-  }
-
   obtenerJugadores(): Observable<Jugador[]>{
     return this.http.get<Jugador[]>(`${this.urlEndPoint}/resultados`);
   }
 
 
-  vecesGanadas(id: number, puesto_ocupado: number): Observable<number>{
-    return this.http.get<number>(`${this.urlEndPoint}/resultados/${id}/${puesto_ocupado}`);
-  }
-
-  obtenerJuegos(): Observable<Juego[]>{
-    return this.http.get<Juego[]>(`${this.urlEndPoint}/juegos`)
+  obtenerResultados(): Observable<Resultado[]>{
+    return this.http.get<Resultado[]>(`${this.urlEndPoint}/tabla`)
   }
 }

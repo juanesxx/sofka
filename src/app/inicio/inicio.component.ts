@@ -16,6 +16,7 @@ export class InicioComponent implements OnInit {
   private vehiculo: Vehiculo;
   vehiculos: Vehiculo[] | undefined;
   juego: Juego = new Juego();
+  juegos: Juego[] | undefined;
   constructor(
     private inicioService: InicioService,
     private activatedRouter: ActivatedRoute,
@@ -86,19 +87,24 @@ export class InicioComponent implements OnInit {
   }
 
   terminar(): void {
+    this.juegos = [];
     for (var i = 0; i <= 2; i++) {
       if (this.ganadores[i] > 0) {
-        this.juego.id_vehiculo = this.ganadores[i];
-        this.juego.puesto_ocupado = i + 1;
-        this.guardar();
+        var resultadoActual = new Juego();
+        resultadoActual.id_vehiculo = this.ganadores[i];
+        resultadoActual.puesto_ocupado = i + 1;
+        this.juegos.push(resultadoActual);
       }
     }
+    this.guardar();
+
+
     window.location.reload();
 
   }
 
   guardar(): void {
-    this.inicioService.guardarDatos(this.juego)
+    this.inicioService.guardarDatos(this.juegos)
       .subscribe(juego => {
         this.router.navigate(['/inicio'])
       });
